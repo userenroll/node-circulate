@@ -1,0 +1,25 @@
+{
+  "name": "node-circulate",
+  "version": "1.0.0",
+  "description": "Implementation of Circulate Hashed Ddata Collection",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/userenroll/node-circulate.git"
+  },
+  "keywords": [
+    "circulate"
+  ],
+  "author": "Path Evolution, LLC",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/userenroll/node-circulate/issues"
+  },
+  "homepage": "https://github.com/userenroll/node-circulate#readme",
+  "dependencies": {
+    "crypto": "0.0.3"
+  }
+}
