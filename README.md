@@ -14,6 +14,7 @@ Generates the the Circulate HTML placement. The "email" value should be the hash
 - @param <object> userDatda - Object representation of user data
 - @return <String> - email address hashed using Circulate's algorithm
 
+
 ### hashEmail(email)
 
 Gets the Circulate email hash string
