@@ -4,6 +4,12 @@ This is a library to aid in the implementation of [Circulate](http://www.circula
 
 More details about the Circulate API can be found here: [https://portal.circulate.com/portal/help/dapi/implement-hashed](https://portal.circulate.com/portal/help/dapi/implement-hashed)
 
+## Installation
+
+```sh
+$ npm install node-circulate
+```
+
 ## API
 
 ### getHtml(siteId, userData)
