@@ -27,7 +27,7 @@ component = {
       throw new Error('Invalid siteId');
     }
 
-    url = this.useSsl ? apiSecureServer : apiServer;
+    url = this.useSsl ? this.apiSecureServer : this.apiServer;
 
     Object.keys(userData).forEach(function (key) {
       userData[key] = userData[key].replace(/\s+$/g, '');
@@ -55,13 +55,7 @@ component = {
    * @return <string> - email address hashed using Circulate's algorithm
    */
   hashEmail: function (email) {
-    var md5 = crypto.createHash('md5'),
-      sha1 = crypto.createHash('sha1'),
-      sha256 = crypto.createHash('sha256'),
-      result,
-      emailSplit,
-      mailbox,
-      domain;
+    var hash, result, emailSplit, mailbox, domain;
 
     email = email.replace(/\s+$/g, '');
     email = email.replace(/^\s+/g, '');
@@ -75,26 +69,33 @@ component = {
     mailbox = emailSplit[0];
     domain = emailSplit[1];
 
-    sha1.update(email.toLowerCase());
-    result = 'H1:' + sha1.digest('hex');
+    hash = crypto.createHash('sha1');
+    hash.update(email.toLowerCase());
+    result = 'H1:' + hash.digest('hex');
 
-    sha1.update(email.toUpperCase());
-    result += ',H2:' + sha1.digest('hex');
+    hash = crypto.createHash('sha1');
+    hash.update(email.toUpperCase());
+    result += ',H2:' + hash.digest('hex');
 
-    sha1.update(domain.toLowerCase());
-    result += ',H3:' + sha1.digest('hex');
+    hash = crypto.createHash('sha1');
+    hash.update(domain.toLowerCase());
+    result += ',H3:' + hash.digest('hex');
 
-    md5.update(email.toLowerCase());
-    result += ',H4:' + md5.digest('hex');
+    hash = crypto.createHash('md5');
+    hash.update(email.toLowerCase());
+    result += ',H4:' + hash.digest('hex');
 
-    md5.update(email.toUpperCase());
-    result += ',H5:' + md5.digest('hex');
+    hash = crypto.createHash('md5');
+    hash.update(email.toUpperCase());
+    result += ',H5:' + hash.digest('hex');
 
-    sha256.update(email.toLowerCase());
-    result += ',H6:' + sha256.digest('hex');
+    hash = crypto.createHash('sha256');
+    hash.update(email.toLowerCase());
+    result += ',H6:' + hash.digest('hex');
 
-    sha256.update(email.toUpperCase());
-    result += ',H7:' + sha256.digest('hex');
+    hash = crypto.createHash('sha256');
+    hash.update(email.toUpperCase());
+    result += ',H7:' + hash.digest('hex');
 
     return result;
   },
