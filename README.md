@@ -2,8 +2,6 @@
 
 This is a library to aid in the implementation of [Circulate](http://www.circulate.com) hashed data colection. This library hashes data and builds the HTML placement for adding to a webpage or in an email for ad tracking. It also provides convenience for dealing with cookies.
 
-More details about the Circulate API can be found here: [https://portal.circulate.com/portal/help/dapi/implement-hashed](https://portal.circulate.com/portal/help/dapi/implement-hashed)
-
 ## Installation
 
 ```sh
@@ -72,3 +70,7 @@ myExpressController = function(request, response, next) {
   response.render('/myView', {circulatePlacement: circulatePlacement})
 }
 ```
+
+## Disclaimer
+
+*NOTE:* This is a third-party, open source library developed by [Path Evolution, LLC](http://pathevolution.com/) and is not officially supported by [Circulate.com, Inc.](http://www.circulate.com). This project is licensed under Apache License 2.0.
